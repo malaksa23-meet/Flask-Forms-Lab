@@ -8,9 +8,10 @@ app = Flask(  # Create a flask app
 )
 
 
-username = "Malak"
-password = "Mm90"
+Login = {"Malak":"mmmm", "Layan":"llll", "Jpleen":"jjjj"}
+
 facebook_friends=["Joleen","Layan","Noa", "Lolo"]
+
 
 
 @app.route('/', methods=['GET', 'POST']) 
@@ -18,7 +19,8 @@ def login():
 	if request.method == 'POST':
 		us= request.form['username']
 		ps = request.form['password']
-		if us==username and ps==password :
+		if us in Login and Login [us]:
+
 			return redirect(url_for('home'))
 		else:
 			return render_template ('login.html')
